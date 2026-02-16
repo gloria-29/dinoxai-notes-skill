@@ -1,0 +1,7 @@
+{
+  "name": "dinox",
+  "description": "DinoxAI 笔记快捷命令",
+  "command": "python3 /root/.openclaw/workspace/skills/dinoxai-notes/scripts/dinoxai_notes.py",
+  "aliases": ["dinoxai", "notes"],
+  "help": "📝 DinoxAI 笔记管理工具\n\n用法: /dinox <命令> [参数]\n\n可用命令:\n  create-md <内容> [--tags 标签...]  创建 Markdown 笔记\n  create <标题> <内容> [--tags ...] 创建带标题的笔记\n  search <关键词>                    搜索笔记\n  get <笔记ID>                       获取笔记详情\n  boxes                              列出所有卡片盒\n  ask <问题>                         AI 问答\n  update <ID> <标题> <内容>         更新笔记\n\n示例:\n  /dinox create-md \"今天学习了 Python\" --tags 学习\n  /dinox search \"睡眠\"\n  /dinox ask \"我记录过哪些减肥方法？\""
+}
