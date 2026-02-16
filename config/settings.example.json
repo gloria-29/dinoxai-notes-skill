@@ -1,0 +1,9 @@
+{
+  "api_token": "your-api-token-here",
+  "base_url": "https://api.dinox.ai",
+  "default_zettelbox_id": "",
+  "auto_tag": false,
+  "response_format": "json",
+  "timeout": 30,
+  "language": "zh-CN"
+}
