@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DinoxAI Notes Skill Configuration",
+  "description": "DinoxAI 笔记技能的配置参数定义",
+  "type": "object",
+  "properties": {
+    "api_token": {
+      "type": "string",
+      "description": "DinoxAI API Token，用于身份验证",
+      "minLength": 1
+    },
+    "base_url": {
+      "type": "string",
+      "description": "API 基础 URL",
+      "default": "https://api.dinox.ai",
+      "format": "uri"
+    },
+    "default_zettelbox_id": {
+      "type": "string",
+      "description": "默认卡片盒 ID，创建笔记时自动使用",
+      "default": ""
+    },
+    "auto_tag": {
+      "type": "boolean",
+      "description": "是否启用自动标签功能",
+      "default": false
+    },
+    "response_format": {
+      "type": "string",
+      "description": "API 响应格式",
+      "enum": ["json", "pretty"],
+      "default": "json"
+    },
+    "timeout": {
+      "type": "integer",
+      "description": "请求超时时间（秒）",
+      "default": 30,
+      "minimum": 5,
+      "maximum": 300
+    },
+    "language": {
+      "type": "string",
+      "description": "默认语言",
+      "enum": ["zh-CN", "en-US"],
+      "default": "zh-CN"
+    }
+  },
+  "required": ["api_token"],
+  "additionalProperties": false
+}
