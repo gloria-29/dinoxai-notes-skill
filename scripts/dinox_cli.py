@@ -51,7 +51,10 @@ def handle_command(args):
             # /dinox search "关键词"
             keyword = args[1] if len(args) > 1 else ""
             result = client.search_notes(keyword)
-            notes = result.get('data', [])
+            notes = result.get('data') or []
+            if not notes:
+                print(f"🔍 未找到与 \"{keyword}\" 相关的笔记")
+                return
             print(f"🔍 找到 {len(notes)} 条相关笔记:\n")
             for note in notes[:5]:  # 只显示前5条
                 print(f"  📄 {note.get('title', '无标题')} ({note.get('id', '')[:8]}...)")
