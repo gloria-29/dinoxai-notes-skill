@@ -22,27 +22,21 @@ class DinoxAINotesClient:
             api_token: API Token，如果不提供则从环境变量或配置文件读取
             base_url: API 基础 URL
         """
-        self.api_token = api_token or self._load_token()
-        self.base_url = base_url or os.getenv('DINOXAI_BASE_URL', 'https://api.dinox.ai')
+        config = self._load_config()
+        self.api_token = api_token or config.get('api_token', '')
+        self.base_url = base_url or os.getenv('DINOXAI_BASE_URL') or config.get('base_url', 'https://aisdk.chatgo.pro')
         self.headers = {
             'Authorization': self.api_token,
             'Content-Type': 'application/json'
         }
     
-    def _load_token(self) -> str:
-        """从配置文件加载 Token"""
+    def _load_config(self) -> dict:
+        """从配置文件加载配置"""
         config_path = Path(__file__).parent.parent / 'config' / 'settings.json'
         if config_path.exists():
             with open(config_path, 'r', encoding='utf-8') as f:
-                config = json.load(f)
-                return config.get('api_token', '')
-        
-        # 尝试从环境变量读取
-        token = os.getenv('DINOXAI_API_TOKEN')
-        if token:
-            return token
-        
-        raise ValueError("API Token 未设置。请在 config/settings.json 中配置或设置环境变量 DINOXAI_API_TOKEN")
+                return json.load(f)
+        return {}
     
     def _request(self, method: str, endpoint: str, **kwargs) -> Dict[str, Any]:
         """
