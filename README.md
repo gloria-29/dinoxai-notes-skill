@@ -265,3 +265,41 @@ Irene Green
 ---
 
 **Enjoy note-taking with AI!** 🎉
+
+## 🚀 快捷命令 /dinox
+
+安装后，你可以直接使用 `/dinox` 命令：
+
+```bash
+# 创建 Markdown 笔记
+/dinox create-md "今天学习了 Python 装饰器" --tags 学习 Python
+
+# 搜索笔记
+/dinox search "睡眠"
+
+# AI 问答
+/dinox ask "我记录过哪些关于减肥的方法？"
+
+# 列出卡片盒
+/dinox boxes
+
+# 获取笔记详情
+/dinox get <笔记ID>
+
+# 创建带标题的笔记
+/dinox create "项目想法" "这是一个很棒的想法..." --tags 工作 想法
+
+# 更新笔记
+/dinox update <笔记ID> "新标题" "新内容" --tags 新标签
+```
+
+### 安装 /dinox 命令
+
+```bash
+# 创建符号链接
+sudo ln -s $(pwd)/scripts/dinox_cli.py /usr/local/bin/dinox
+
+# 或者添加到 PATH
+echo 'export PATH="$PATH:'$(pwd)'/scripts"' >> ~/.bashrc
+source ~/.bashrc
+```
