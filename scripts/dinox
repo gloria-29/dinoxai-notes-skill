@@ -1,0 +1,31 @@
+#!/bin/bash
+# DinoxAI Notes Skill 快捷调用脚本
+# 使用: /dinox <命令> [参数]
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PYTHON_SCRIPT="$SCRIPT_DIR/../scripts/dinoxai_notes.py"
+
+# 如果没有参数，显示帮助
+if [ $# -eq 0 ]; then
+    echo "📝 DinoxAI Notes Skill"
+    echo ""
+    echo "用法: /dinox <命令> [参数]"
+    echo ""
+    echo "可用命令:"
+    echo "  create-md <内容> [--tags 标签1 标签2]     创建 Markdown 笔记"
+    echo "  create <标题> <内容> [--tags 标签...]    创建带标题的笔记"
+    echo "  search <关键词>                           搜索笔记"
+    echo "  get <笔记ID>                             获取笔记详情"
+    echo "  boxes                                    列出所有卡片盒"
+    echo "  ask <问题>                               AI 问答"
+    echo "  update <ID> <标题> <内容> [--tags ...]   更新笔记"
+    echo ""
+    echo "示例:"
+    echo "  /dinox create-md \"今天学习了 Python\" --tags 学习 Python"
+    echo "  /dinox search \"睡眠\""
+    echo "  /dinox ask \"我记录过哪些关于减肥的方法？\""
+    exit 0
+fi
+
+# 执行 Python 脚本
+python3 "$PYTHON_SCRIPT" "$@"
