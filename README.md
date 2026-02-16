@@ -49,14 +49,14 @@ cp config/settings.example.json config/settings.json
 ```json
 {
   "api_token": "your-actual-api-token",
-  "base_url": "https://api.dinox.ai"
+  "base_url": "https://aisdk.chatgo.pro"
 }
 ```
 
 或使用环境变量：
 ```bash
 export DINOXAI_API_TOKEN="your-api-token"
-export DINOXAI_BASE_URL="https://api.dinox.ai"
+export DINOXAI_BASE_URL="https://aisdk.chatgo.pro"
 ```
 
 ## 💻 使用方法
@@ -243,7 +243,7 @@ dinoxai-notes-skill/
 | 参数 | 类型 | 必填 | 默认值 | 说明 |
 |------|------|------|--------|------|
 | `api_token` | string | ✅ | - | API Token |
-| `base_url` | string | ❌ | `https://api.dinox.ai` | API 基础 URL |
+| `base_url` | string | ❌ | `https://aisdk.chatgo.pro` | API 基础 URL |
 | `default_zettelbox_id` | string | ❌ | `""` | 默认卡片盒 ID |
 | `auto_tag` | boolean | ❌ | `false` | 自动标签 |
 | `response_format` | string | ❌ | `json` | 响应格式 |
